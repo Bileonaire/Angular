@@ -1,0 +1,20 @@
+<p>
+  links works!
+</p>
+
+<div *ngIf="links">
+  <div *ngFor="let link of links">
+    <p>{{ link.description }}: {{ link.url }} {{ link.id }}</p>
+  </div>
+</div>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f); f.reset()" novalidate>
+  <input name="first" ngModel required #first="ngModel" />
+  <input name="last" ngModel />
+  <button>Submit</button>
+</form>
+
+<p>First name value: {{ first.value }}</p>
+<p>First name valid: {{ first.valid }}</p>
+<p>Form value: {{ f.value | json }}</p>
+<p>Form valid: {{ f.valid }}</p>
